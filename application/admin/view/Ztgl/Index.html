@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>网站管理</title>
+  <link rel="stylesheet" href="__PUBLIC__/static/layui/css/layui.css">
+  <link rel="stylesheet" href="__ADMIN__/css/index.css">
+	
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+  {include file="public/header" /}
+  
+  {include file="public/left" /}
+  
+  <div class="layui-body">
+    
+    <!-- 内容主体区域 -->
+    <div style="padding: 15px;">
+      <!-- 搜索框 -->
+    <div class="layui-inline">
+        <form class="layui-form search_from" lay-filter="search_form"  action="">
+          <div class="layui-input-inline">
+            <input type="text" name="keyword" id='keyword' lay-verify="" placeholder="请输入网页标题" autocomplete="off" class="layui-input">
+          </div>
+          <div class="layui-input-inline">
+            <select name="ziduan"  lay-verify="required" lay-filter="search_select" lay-search>
+              <option value="webtitle" selected>网页标题</option>
+              <option value="webaddress">网页地址</option>
+              <option value="beizhu">备注</option>
+            </select>
+          </div>
+          <div class="layui-input-inline" style="">
+            <select name="tuiguang"  lay-verify="" lay-search>
+              <option value="" selected>是否推广</option>
+              <option value="是">是</option>
+              <option value="否">否</option>
+            </select>
+          </div>
+          <div class="layui-input-inline" style="">
+            <select name="fenlei"  lay-verify="" lay-search>
+              <option value="" selected>专题分类</option>
+              <option value="咨询页">咨询页</option> 
+              <option value="病种页">病种页</option>
+              <option value="其他">其他</option>
+            </select>
+          </div>
+          <button class="layui-btn" lay-submit lay-filter="search_form_submit">搜索</button>
+        </form>
+     </div>
+
+      <table class="layui-hide" id="demo" lay-filter="test"></table>
+
+<script type="text/html" id="barDemo">
+  <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a>
+  <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+  <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+</script>
+      <dl class="download">
+        <dt>专题自动查找入库（此举省去手动输入的麻烦，设置好后程序自动查找指定文件夹里后缀为htm，html的文件，并自动录入数据）</dt>
+        <dd>
+          <b>第一步：</b>下载“list_zt.php”放置到网站根目录<a href="/downloadfield/list_zt.php" style="color:#FF5722;"> 点击下载 </a>。
+        </dd>
+        <dd>
+          <b>第二步：</b><a id="auto_set" href="javascript:;" style="color:#FF5722;"> 点击这里 </a>填写网站域名和存放专题的目录（必须是根目录下的目录），提交即可。
+        </dd>
+      </dl>
+    </div>
+  </div>
+
+  <div class="layui-footer">
+    <!-- 底部固定区域 -->
+    © layui.com - 底部固定区域
+  </div>
+</div>
+<script src="__ADMIN__/js/jquery.min.js"></script>
+<script src="__PUBLIC__/static/layui/layui.js"></script>
+	<script>
+layui.config({
+  base: '__ADMIN__/js/' //你存放新模块的目录，注意，不是layui的模块目录
+}).use('public'); //加载入口
+</script> 
+</body>
+</html>

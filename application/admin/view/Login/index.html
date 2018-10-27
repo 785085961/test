@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html >
+<head>
+<meta charset="UTF-8">
+<title>后台登陆</title>
+
+<link rel="stylesheet" href="__ADMIN__/css/login.css">
+
+
+</head>
+
+<body>
+
+<div class="login">
+	<h1>后台登陆</h1>
+	<form method="post" action="/admin/login/login">
+		<input type="text" name="user_name" placeholder="登陆名" required="required" />
+		<input type="password" name="pass_word" placeholder="密码" required="required" />
+		<div class="pass_form_item">
+	        <input type="text" name="verifyCode" class="yzm_input" placeholder="请输入验证码">
+	      <span class="yzm_img">{:captcha_img()}</span>
+	     </div>
+		<button type="submit" class="btn btn-primary btn-block btn-large">登录</button>
+	</form>
+</div>
+
+
+
+</body>
+</html>
